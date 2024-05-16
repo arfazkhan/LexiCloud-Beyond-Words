@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Fancy Word Cloud Generator</h1>
+<form method="post">
+    <textarea name="text" rows="10" cols="50" placeholder="Enter your text here..."></textarea><br>
+    <label for="font">Font:</label>
+    <select name="font" id="font">
+        <option value="sans-serif">Sans-Serif</option>
+        <option value="serif">Serif</option>
+        <option value="monospace">Monospace</option>
+    </select><br>
+    <label for="color">Color Scheme:</label>
+    <select name="color" id="color">
+        <option value="random">Random</option>
+        <option value="rainbow">Rainbow</option>
+        <option value="heat">Heatmap</option>
+        <option value="earth">Earth</option>
+    </select><br>
+    <label for="shape">Shape:</label>
+    <select name="shape" id="shape">
+        <option value="default">Default</option>
+        <option value="circle">Circle</option>
+        <option value="star">Star</option>
+    </select><br>
+    <button type="submit">Generate Word Cloud</button>
+</form>
+{% if img_url %}
+<h2>Generated Word Cloud</h2>
+<img src="data:image/png;base64,{{ img_url }}" alt="Word Cloud">
+{% endif %}
+{% endblock %}
